@@ -9,4 +9,4 @@ for demontration purposes.
 2. wget http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-page.sql.gz
 3. make_dictionary.py
 4. make a pot of tea while you are waiting for this to finish :)
-5. alto-words.py example.xml
+5. alto_words.py example.xml
