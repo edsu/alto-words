@@ -1,0 +1,11 @@
+This is a (hopefully) simple demonstration of how you can examine the 
+ratio of dictionary words to all words in a METS Alto OCR XML file.
+The latest dump of the English Wiktionary is used as the dictionary 
+for demontration purposes.
+
+0. install python
+1. install lxml
+2. wget http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-page.sql.gz
+3. make_dictionary.py
+4. make a pot of tea while you are waiting for this to finish :)
+5. ocr.py example.xml
