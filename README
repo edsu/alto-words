@@ -1,8 +1,8 @@
 This is a simplistic demonstration of how you can calculate the 
 ratio of dictionary words to all words in a METS Alto OCR XML file.
 
-The latest dump of the English Wiktionary is used as the dictionary 
-for demontration purposes.
+The latest dump of the English Wiktionary is used because its available
+and somewhat sizable: ~2 million words.
 
 0. install python
 1. install lxml
