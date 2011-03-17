@@ -2,7 +2,10 @@
 
 """
 alto-words.py reads an Alto OCR XML file and prints out the ratio of 
-dictionary words to all words for the document
+dictionary words to all words for the document. 
+
+    alto-words.py example.xml
+
 """
 
 import re
