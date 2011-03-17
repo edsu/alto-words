@@ -4,7 +4,7 @@
 alto_words.py reads an Alto OCR XML file and prints out the ratio of 
 dictionary words to all words for the document. 
 
-    alto-words.py example.xml
+    alto_words.py example.xml
 
 """
 
