@@ -18,19 +18,27 @@ def main(ocr_filename):
     parser.setContentHandler(handler)
     parser.setFeature(feature_namespaces, 0)
     parser.parse(ocr_filename)
-    print handler.words
+    print handler.dictionary_words
+    print handler.ratio
 
 
 class AltoHandler(ContentHandler):
 
     def __init__(self):
+        self.dictionary_words = []
         self.words = []
-        #self.dictionary = dbm.open('dictionary')
+        self.dictionary = dbm.open('dictionary')
 
     def startElement(self, tag, attrs):
         if tag == 'String':
             word = attrs.get("CONTENT").lower()
+            if dictionary.has_key(word):
+                self.dictionary_words.append(word)
             self.words.append(word)
+
+    @property
+    def ratio(self):
+        return self.dictionary_words / float(self.words)
 
 if __name__ == "__main__":
     filename = sys.argv[1]
