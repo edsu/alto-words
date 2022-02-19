@@ -1,14 +1,11 @@
 #!/usr/bin/env python
-
 """
-alto_words.py reads an Alto OCR XML file and prints out the ratio of 
-dictionary words to all words for the document. 
+alto_words.py reads an Alto OCR XML file and prints out the ratio of
+dictionary words to all words for the document.
 
     alto_words.py example.xml
 
 """
-
-import re
 import sys
 import dbm
 
@@ -21,20 +18,21 @@ def main(ocr_filename):
     parser.setContentHandler(handler)
     parser.setFeature(feature_namespaces, 0)
     parser.parse(ocr_filename)
-    print handler.ratio
+    print(handler.ratio)
 
 
 class AltoHandler(ContentHandler):
 
     def __init__(self):
-        self.dictionary = dbm.open('dictionary')
+        self.dictionary = dbm.open('dictionary.db')
         self.dictionary_words = []
         self.words = []
 
     def startElement(self, tag, attrs):
         if tag == 'String':
             word = attrs.get("CONTENT").lower()
-            if self.dictionary.has_key(word):
+            # keys are b'' so turn str word also to b''
+            if self.dictionary.get(word.encode()):
                 self.dictionary_words.append(word)
             self.words.append(word)
 
